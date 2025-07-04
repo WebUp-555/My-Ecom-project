@@ -1,4 +1,3 @@
-// src/components/Navbar.jsx
 import React from 'react';
 import './Navbar.css'
 import { FaSignInAlt } from 'react-icons/fa';
