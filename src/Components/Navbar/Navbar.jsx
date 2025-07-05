@@ -1,6 +1,7 @@
 import React from 'react';
 import './Navbar.css'
 import { FaSignInAlt } from 'react-icons/fa';
+import{Link} from 'react-router-dom';
 
 const Navbar = () => {
   return (
@@ -15,11 +16,12 @@ const Navbar = () => {
         <li><a href="#services">Service</a></li>
         <li><a href="#contact">Contact Us</a></li>
       </ul>
-
+      <Link to="/signin">
       <button className="sign-in-btn ">
         <FaSignInAlt style={{ marginRight: '8px' }} />
         Sign In
       </button>
+      </Link>
     </nav>
   );
 };
