@@ -25,7 +25,7 @@ const SignIn = () => {
           </button>
         </form>
         <p className="mt-6 text-center text-sm">
-          New to Netflix?{' '}
+          New to Japanee?{' '}
           <Link to="/signup" className="text-blue-400 hover:underline">
             Sign up now
           </Link>
