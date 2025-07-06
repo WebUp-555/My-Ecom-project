@@ -1,3 +1,4 @@
+/* Existing styles... */
 nav {
   position: sticky;
   top: 0;
@@ -9,26 +10,16 @@ nav {
   padding-right: 25px;
 }
 
-.logo {
-  color: white;
-  font-size: 24px;
-  font-family: 'Sawarabi Gothic';
-  padding-left: 40px;
-}
 
-.logo .red {
-  color: #ea1538 !important;
-}
-
+/* Rest of your styles stay the same... */
 .nav-links {
   list-style: none;
   display: flex;
   background: transparent;
-
   font-size: 20px;
   gap: 30px;
   padding-left: 50%;
-  font-family: Arial,  sans-serif;
+  font-family: Arial, sans-serif;
 }
 
 .nav-links li a {
@@ -36,12 +27,12 @@ nav {
   color: white;
   font-weight: bold;
   transition: color 0.3s ease;
-
 }
 
 .nav-links li a:hover {
   color: #ea1538;
 }
+
 .sign-in-btn {
   display: flex;
   align-items: center;
@@ -54,7 +45,6 @@ nav {
   cursor: pointer;
   font-weight: bold;
   transition: background 0.3s ease;
-
 }
 
 .sign-in-btn:hover {
