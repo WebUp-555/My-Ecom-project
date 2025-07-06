@@ -1,14 +1,14 @@
 import React from 'react';
 import { FaSignInAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import JapaneeLogo from '../../Components/JapaneeLogo/JapaneeLogo'; // Adjust the path if your structure is different
+
 import './Navbar.css';
 
 const Navbar = () => {
   return (
-    <nav className='navbar bg-zinc-950'>
+    <nav className="navbar bg-zinc-950">
       <div className="logo-container">
-        <JapaneeLogo />
+        <img src="/japlogo.jpg" alt="Japanee Logo" className="logo-image" />
       </div>
 
       <ul className="nav-links">

@@ -50,3 +50,19 @@ nav {
 .sign-in-btn:hover {
   background-color: #ff4e5e;
 }
+.logo-image {
+  height: 60px;
+  width: auto;
+  image-rendering: crisp-edges;
+  padding-left: 20px;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
