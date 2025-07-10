@@ -30,25 +30,30 @@ const Trending = () => {
   };
 
   return (
-<section className="py-10 px-4 bg-zinc-900 text-white relative overflow-hidden"> 
-       <h2 className="text-3xl font-bold mb-6 text-center font-family: 'Sawarabi Gohthic'">Trending T-Shirts</h2>
+    <section className="py-10 px-4 bg-zinc-900 text-white relative overflow-hidden"> 
+      
+      {/* Header and Search Bar */}
+      <div className="max-w-7xl mx-auto mb-8 flex flex-col md:flex-row justify-between items-center gap-4">
+        <h2 className="text-3xl font-bold text-center md:text-left font-family: 'Sawarabi Gohthic'">
+          Trending T-Shirts
+        </h2>
 
-      {/* Search Input */}
-      <div className="max-w-md mx-auto mb-8 relative">
-        <input
-          type="text"
-          placeholder="Search T-Shirts..."
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
-          className="w-full px-4 py-2 pr-12 rounded-md border border-zinc-700 bg-zinc-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500"
-        />
-        <button
-          onClick={handleSearch}
-          className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-red-500"
-        >
-          <Search size={20} />
-        </button>
+        <div className="relative w-full md:w-96">
+          <input
+            type="text"
+            placeholder="Search T-Shirts..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
+            className="w-full px-4 py-2 pr-12 rounded-md border border-zinc-700 bg-zinc-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500"
+          />
+          <button
+            onClick={handleSearch}
+            className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-red-500"
+          >
+            <Search size={20} />
+          </button>
+        </div>
       </div>
 
       {/* Scroll Buttons */}
@@ -67,9 +72,9 @@ const Trending = () => {
 
       {/* Shirt Cards */}
       <div
-  ref={scrollContainerRef}
-  className="flex overflow-x-auto overflow-y-hidden gap-6 py-4 scroll-smooth scrollbar-hide"
->
+        ref={scrollContainerRef}
+        className="flex overflow-x-auto overflow-y-hidden gap-6 py-4 scroll-smooth scrollbar-hide "
+      >
         {originalShirts.map((shirt, idx) => {
           const isVisible = shirt.label.toLowerCase().includes(searchTerm.toLowerCase());
           return (
@@ -80,10 +85,10 @@ const Trending = () => {
               }`}
             >
               <img
-  src={shirt.src}
-  alt={shirt.label}
-  className="w-[180px] h-auto object-contain rounded-md mx-auto hover:brightness-110 transition duration-300 hover:drop-shadow-[0_0_8px_#ff0000]"
-/>
+                src={shirt.src}
+                alt={shirt.label}
+                className="w-[180px] h-auto object-contain rounded-md mx-auto hover:brightness-110 transition duration-300 hover:drop-shadow-[0_0_8px_#ff0000]"
+              />
               <p className="mt-3 text-sm font-family: 'Sawarabi Gohthic'">{shirt.label}</p>
             </div>
           );

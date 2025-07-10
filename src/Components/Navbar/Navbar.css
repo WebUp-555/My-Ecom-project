@@ -5,7 +5,7 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 0;
+  padding: 7px 0;
   z-index: 1000;
   padding-right: 25px;
 }
@@ -18,7 +18,7 @@ nav {
   background: transparent;
   font-size: 20px;
   gap: 30px;
-  padding-left: 50%;
+  padding-left: 35%;
   font-family: Arial, sans-serif;
 }
 
@@ -40,7 +40,7 @@ nav {
   background-color: #ea1538;
   color: white;
   border: none;
-  padding: 10px 16px;
+  padding: 9px 16px;
   border-radius: 8px;
   cursor: pointer;
   font-weight: bold;
@@ -57,7 +57,13 @@ nav {
   padding-left: 20px;
   animation: float 3s ease-in-out infinite;
 }
-
+.logo-image{
+  width: 200px;
+  height: 40px;
+}
+.logo-btn{
+  cursor: pointer;
+}
 @keyframes float {
   0%, 100% {
     transform: translateY(0);

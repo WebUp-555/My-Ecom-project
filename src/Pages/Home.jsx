@@ -1,7 +1,7 @@
 import React from 'react';
 import Trending from "../Components/Trendingtshirts/Trending";
 import Services from "../Components/Services/Ourservices";
-import Banner from "../Components/banner/Banner";
+import Carousel from "../Components/Carousel/Carousel";
 import ContactUs from '../Components/Contactus/ContactUs';
 import AboutUs from '../Components/About/AboutUs';
 
@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <div>
       <section id="home">
-        <Banner />
+        <Carousel/>
         <Trending />
         <div className="bg-zinc-900 text-white text-center py-20 px-4">
           <h1 className="text-4xl md:text-5xl font-bold text-red-500 mb-4">
