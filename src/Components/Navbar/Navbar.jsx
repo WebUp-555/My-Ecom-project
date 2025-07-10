@@ -6,13 +6,18 @@ import './Navbar.css';
 
 const Navbar = () => {
   return (
-    <nav className="navbar bg-zinc-950">
+    <nav className="navbar bg-zinc-900">
       <div className="logo-container">
-        <img src="/japlogo.jpg" alt="Japanee Logo" className="logo-image" />
+        <Link to="">
+        <button className='logo-btn'>
+        <img src="/logoo.png" alt="Japanee Logo" className="logo-image" />
+        </button>
+        </Link>
       </div>
 
       <ul className="nav-links">
         <li><a href="#home">Home</a></li>
+        <li><a href="#home">Products</a></li>
         <li><a href="#about">About</a></li>
         <li><a href="#services">Service</a></li>
         <li><a href="#contact">Contact Us</a></li>
