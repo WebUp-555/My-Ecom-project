@@ -1,10 +1,11 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './Components/Navbar/Navbar';
+import Products from './Pages/Products'
 import Home from './Pages/Home';
 import SignIn from './Pages/signin';
 import SignUp from './Pages/signup';
-
+import ProductDetails from "./Pages/ProductsDetails";
 function App() {
   return (
     <BrowserRouter>
@@ -26,7 +27,8 @@ function AppContent() {
         <Route path="/" element={<Home />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
-        
+        <Route path="/Products" element={<Products />}/>
+        <Route path="/product/:id" element={<ProductDetails />} />
       </Routes>
     </>
   );

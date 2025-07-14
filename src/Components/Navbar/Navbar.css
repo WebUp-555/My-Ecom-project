@@ -64,6 +64,19 @@ nav {
 .logo-btn{
   cursor: pointer;
 }
+.cart-icon {
+  width: 35px;
+  height: 35px;
+  object-fit: contain;
+  padding-right: 10px;
+  padding-bottom: 5px;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.cart-icon:hover {
+  transform: scale(1.1);
+}
 @keyframes float {
   0%, 100% {
     transform: translateY(0);
