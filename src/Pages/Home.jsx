@@ -4,6 +4,7 @@ import Services from "../Components/Services/Ourservices";
 import Carousel from "../Components/Carousel/Carousel";
 import ContactUs from '../Components/Contactus/ContactUs';
 import AboutUs from '../Components/About/AboutUs';
+import {Link} from 'react-router-dom';
 
 const Home = () => {
   return (
@@ -21,6 +22,7 @@ const Home = () => {
           <button className="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-md transition">
             Shop Now
           </button>
+         
         </div>
       </section>
 
