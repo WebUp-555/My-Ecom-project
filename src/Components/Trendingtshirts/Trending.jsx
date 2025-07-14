@@ -1,108 +1,90 @@
-import { useRef, useState } from 'react';
-import { Search } from 'lucide-react'; // Using lucide for a clean search icon
+import React, { useState, useRef } from "react";
+import productsData from "../data/mock_tshirt_products.json";
+import { ChevronLeft, ChevronRight, Search } from "lucide-react";
+import { Link } from "react-router-dom";
 
-const originalShirts = [
-  { src: '/Images/t-shirt1.jpg', label: 'Shirt 1' },
-  { src: '/Images/t-shirt2.jpg', label: 'Shirt 2' },
-  { src: '/Images/t-shirt3.jpg', label: 'Shirt 3' },
-  { src: '/Images/t-shirt4.png', label: 'Shirt 4' },
-  { src: '/Images/t-shirt5.png', label: 'Guts characture t-shirt' },
-  { src: '/Images/t-shirt6.png', label: 'Shirt 6' },
-  { src: '/Images/t-shirt7.png', label: 'Shirt 7' },
-  { src: '/Images/t-shirt8.png', label: 'Shirt 8' }
-];
+const TrendingShirts = () => {
+  const scrollRef = useRef(null);
+  const [searchTerm, setSearchTerm] = useState("");
 
-const Trending = () => {
-  const scrollContainerRef = useRef(null);
-  const [searchQuery, setSearchQuery] = useState('');
-  const [searchTerm, setSearchTerm] = useState('');
-
-  const scrollLeft = () => {
-    scrollContainerRef.current.scrollLeft -= 300;
+  const scroll = (direction) => {
+    if (!scrollRef.current) return;
+    const scrollAmount = 300;
+    scrollRef.current.scrollBy({
+      left: direction === "left" ? -scrollAmount : scrollAmount,
+      behavior: "smooth",
+    });
   };
 
-  const scrollRight = () => {
-    scrollContainerRef.current.scrollLeft += 300;
-  };
-
-  const handleSearch = () => {
-    setSearchTerm(searchQuery);
-  };
+  const filteredProducts = productsData.products.filter((shirt) =>
+    shirt.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
-    <section className="py-10 px-4 bg-zinc-900 text-white relative overflow-hidden"> 
-      
-      {/* Header and Search Bar */}
-      <div className="max-w-7xl mx-auto mb-8 flex flex-col md:flex-row justify-between items-center gap-4">
-        <h2 className="text-3xl font-bold text-center md:text-left font-family: 'Sawarabi Gohthic'">
-          Trending T-Shirts
-        </h2>
-
-        <div className="relative w-full md:w-96">
+    <div className="bg-[#111112] text-white p-6">
+      {/* Heading & Search */}
+      <div className="flex justify-between items-center mb-4">
+        <h2 className="text-3xl font-bold">Trending T-Shirts</h2>
+        <div className="relative">
           <input
             type="text"
             placeholder="Search T-Shirts..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
-            className="w-full px-4 py-2 pr-12 rounded-md border border-zinc-700 bg-zinc-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-red-500"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="bg-zinc-800 text-white px-4 py-2 pr-10 rounded-lg border border-zinc-600 focus:outline-none focus:ring-2 focus:ring-red-500"
           />
-          <button
-            onClick={handleSearch}
-            className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-red-500"
-          >
-            <Search size={20} />
-          </button>
+          <Search className="absolute right-3 top-2.5 h-5 w-5 text-gray-400" />
         </div>
       </div>
 
       {/* Scroll Buttons */}
-      <button
-        onClick={scrollLeft}
-        className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 bg-black/50 text-white p-3 rounded-sm hover:bg-white/20 transition"
-      >
-        ❮
-      </button>
-      <button
-        onClick={scrollRight}
-        className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 bg-black/50 text-white p-3 rounded-sm hover:bg-white/20 transition"
-      >
-        ❯
-      </button>
+      <div className="relative">
+        <button
+          onClick={() => scroll("left")}
+          className="absolute z-10 left-0 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 p-2 rounded-full hover:bg-opacity-80"
+        >
+          <ChevronLeft size={24} />
+        </button>
+        <button
+          onClick={() => scroll("right")}
+          className="absolute z-10 right-0 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 p-2 rounded-full hover:bg-opacity-80"
+        >
+          <ChevronRight size={24} />
+        </button>
 
-      {/* Shirt Cards */}
-      <div
-        ref={scrollContainerRef}
-        className="flex overflow-x-auto overflow-y-hidden gap-6 py-4 scroll-smooth scrollbar-hide "
-      >
-        {originalShirts.map((shirt, idx) => {
-          const isVisible = shirt.label.toLowerCase().includes(searchTerm.toLowerCase());
-          return (
-            <div
-              key={idx}
-              className={`min-w-[180px] bg-zinc-800 p-4 rounded-lg text-center hover:scale-105 transition-transform duration-300 hover:shadow-[0_10px_20px_rgba(225,225,225,0.1)] ${
-                !isVisible ? 'hidden' : ''
-              }`}
-            >
-              <img
-                src={shirt.src}
-                alt={shirt.label}
-                className="w-[180px] h-auto object-contain rounded-md mx-auto hover:brightness-110 transition duration-300 hover:drop-shadow-[0_0_8px_#ff0000]"
-              />
-              <p className="mt-3 text-sm font-family: 'Sawarabi Gohthic'">{shirt.label}</p>
-            </div>
-          );
-        })}
+        {/* Shirt Cards */}
+        <div
+          ref={scrollRef}
+          className="flex overflow-x-auto gap-6 py-4 px-2 no-scrollbar scroll-smooth"
+        >
+          {filteredProducts.slice(0, 8).map((shirt, idx) => {
+            const img = shirt.images?.[0]?.src;
+            return (
+              <Link to={`/product/${shirt.id}`} key={idx} className="no-underline">
+
+              <div
+                key={idx}
+                className="min-w-[200px] bg-zinc-800 p-4 rounded-xl text-center hover:scale-105 transition-transform duration-300"
+                >
+                <img
+                  src={img}
+                  alt={shirt.title}
+                  className="w-full h-48 object-contain rounded-2xl mx-auto mb-2 hover:brightness-110 hover:drop-shadow-[0_0_8px_#ff0000]"
+                  />
+                <p className="text-sm font-medium mb-1">{shirt.title}</p>
+                
+                <div
+                  className="text-xs text-gray-400"
+                  dangerouslySetInnerHTML={{ __html: shirt.description }}
+                  />
+              </div>
+                  </Link>
+            );
+          })}
+        </div>
       </div>
-
-      {/* No results message */}
-      {originalShirts.filter(shirt =>
-        shirt.label.toLowerCase().includes(searchTerm.toLowerCase())
-      ).length === 0 && (
-        <p className="text-center w-full py-4 font-family: 'Sawarabi Gohthic'">No T-Shirts found.</p>
-      )}
-    </section>
+    </div>
   );
 };
 
-export default Trending;
+export default TrendingShirts;
