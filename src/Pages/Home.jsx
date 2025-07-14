@@ -26,6 +26,7 @@ const Home = () => {
           <button className="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-md transition">
             Shop Now
           </button>
+          </Link>
          
         </div>
       </section>
