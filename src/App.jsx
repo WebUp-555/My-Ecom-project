@@ -1,11 +1,16 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './Components/Navbar/Navbar';
-
+import Products from './Pages/Products'
 import Home from './Pages/Home';
+
 import SignIn from './Pages/signin';
 import SignUp from './Pages/signup';
-import CartPage from './Pages/cartPage'
+import ProductDetails from "./Pages/ProductsDetails";
+import CartPage from "./Pages/cartPage";
+
+
+
 
 function App() {
   return (
@@ -26,10 +31,12 @@ function AppContent() {
       {shouldShowNavbar && <Navbar />}
       <Routes>
         <Route path="/" element={<Home />} />
-        
+        <Route path="/Products" element={<Products />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
-        <Route path="/cart" element={<CartPage />}/>
+        <Route path="/Products" element={<Products />}/>
+        <Route path="/product/:id" element={<ProductDetails />} />
+        <Route path="/cart" element={<CartPage/>} />
         
       </Routes>
     </>
