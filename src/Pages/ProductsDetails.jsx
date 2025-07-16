@@ -84,8 +84,8 @@ const ProductDetails = () => {
             </div>
           </div>
 
-          <button className="bg-red-600 hover:bg-red-500 text-white font-bold py-2 px-6 rounded w-2xs mt-4">
-            Add {quantity} to Cart
+          <button className="bg-red-600 hover:bg-red-500 text-white font-bold py-2 px-6 cursor-pointer rounded w-2xs mt-4">
+            Add {quantity} item to Cart
           </button>
         </div>
       </div>
