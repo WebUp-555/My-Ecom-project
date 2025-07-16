@@ -1,4 +1,5 @@
 import { useCartStore } from '../Pages/cartStore';
+import { useNavigate, Link } from "react-router-dom";
 
 export default function CartPage() {
   const cartItems = useCartStore((state) => state.cartItems);
@@ -16,10 +17,10 @@ export default function CartPage() {
   const discount = subtotal > 1000 ? 100 : 0;
   const total = subtotal + shipping + tax - discount;
 
-  
+
   return (
     <div className="min-h-screen bg-black text-white px-6 py-10">
-     
+
 
       <h1 className="text-red-600 text-3xl font-bold mb-6">🛒 Your Cart</h1>
 
@@ -39,7 +40,7 @@ export default function CartPage() {
                     <img
                       src={item.image}
                       alt={item.name}
-                      className="w-full h-full object-cover scale-125"
+                      className="w-full h-full object-contain scale-125"
                     />
                   </div>
 
@@ -91,9 +92,13 @@ export default function CartPage() {
               <hr className="my-2 border-gray-600" />
               <p className="text-lg text-white font-bold">Total: ₹{total}</p>
             </div>
-            <button className="mt-4 w-full bg-red-600 hover:bg-red-700 py-2 rounded text-white font-semibold">
-              Proceed to Checkout
-            </button>
+
+            <Link to="/payment">
+              <button className="mt-4 w-full bg-red-600 hover:bg-red-700 py-2 rounded text-white font-semibold">
+                Proceed to Checkout
+              </button>
+            </Link>
+
           </div>
         </div>
       )}

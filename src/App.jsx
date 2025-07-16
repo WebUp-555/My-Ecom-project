@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './Components/Navbar/Navbar';
 
-
+import PaymentPage from './Pages/PaymentPage'
 import Products from './Pages/Products';
 import Home from './Pages/Home';
 import SignIn from './Pages/signin';
@@ -34,7 +34,7 @@ function AppContent() {
         <Route path="/Products" element={<Products />} />
         <Route path="/product/:id" element={<ProductDetails />} />
         <Route path="/cart" element={<CartPage />} />
-        
+         <Route path="/payment" element={<PaymentPage />} />
       </Routes>
     </>
   );
