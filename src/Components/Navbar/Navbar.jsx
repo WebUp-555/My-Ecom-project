@@ -2,6 +2,7 @@ import React from 'react';
 import { FaSignInAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
+
 import './Navbar.css';
 
 const Navbar = () => {
@@ -20,9 +21,9 @@ const Navbar = () => {
       
         <li><a href="/Products">Products</a></li>
        
-        <li><a href="/about">About</a></li>
-        <li><a href="/services">Service</a></li>
-        <li><a href="/contact">Contact Us</a></li>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#services">Service</a></li>
+        <li><a href="/#contact">Contact Us</a></li>
         <li>
        <Link to="/cart">
       <img src="/Cart.png" alt="Cart" className="cart-icon rounded-full" />
