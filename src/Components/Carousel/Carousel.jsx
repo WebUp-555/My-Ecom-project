@@ -16,30 +16,47 @@ function AdaptiveHeight() {
     speed: 500,
     autoplaySpeed: 3000,
     arrows: false,
+    appendDots: dots => (
+      <div style={{ bottom: '10px' }}>
+        <ul style={{ margin: "0px", display: "flex", justifyContent: "center" }}> {dots} </ul>
+      </div>
+    ),
+    customPaging: i => (
+      <div
+        style={{
+          width: "12px",
+          height: "12px",
+          borderRadius: "50%",
+          background: "#ea1538",
+          opacity: 0.7,
+          margin: "0 4px"
+        }}
+      />
+    )
   };
 
   return (
-    <div className="slider-container h-[400px] px-4 md:px-20">
+    <div className="slider-container bg-gray-900 rounded-xl shadow-lg mx-auto my-6 px-2 md:px-10 max-w-5xl">
       <Slider {...settings}>
         <div>
           <img
             src="/Images/t-shirt1.jpg"
             alt="T-shirt 1"
-            className="w-full h-[400px] object-contain rounded-lg"
+            className="w-full h-[220px] md:h-[400px] object-cover rounded-xl"
           />
         </div>
         <div>
           <img
             src="/b1.png"
             alt="Banner 1"
-            className="w-full h-[400px] object-contain rounded-lg"
+            className="w-full h-[220px] md:h-[400px] object-cover rounded-xl"
           />
         </div>
         <div>
           <img
             src="/ro.jpg"
             alt="Promo"
-            className="w-full h-[400px] object-contain rounded-lg"
+            className="w-full h-[220px] md:h-[400px] object-cover rounded-xl"
           />
         </div>
       </Slider>
