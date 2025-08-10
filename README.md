@@ -1,12 +1,46 @@
-# React + Vite
+# 👕 T-Shirt E-Commerce Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a modern and responsive frontend for a T-shirt e-commerce website built with *React* and *Zustand*. It features product browsing, a shopping cart system, and a clean UI.
 
-Currently, two official plugins are available:
+We are currently working on the backend to enable full admin control, product management, and authentication using *Node.js* and *Firebase*.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 Features
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 🛍 Product listings
+- 🛒 Cart functionality
+- 🎨 Responsive UI with Zustand for state management
+- 🔐 Backend (in progress): Authentication, Admin Dashboard, Product Upload
+
+---
+
+## 🧑‍💻 Built By
+
+- **[Shamsheer](https://github.com/WebUp-555)** – Frontend development, UI design, and project setup
+- **[Varun](https://github.com/Varunnn47)** – Frontend development, feature implementation, and backend integration (in progress)
+
+> Special thanks to Varun for the excellent collaboration and shared ownership of this project.
+
+---
+
+## 📦 Tech Stack
+
+- React
+- Zustand
+- CSS
+- Node.js & Firebase (backend in progress)
+
+---
+
+## 📁 Project Status
+
+🟡 *Frontend Completed*  
+🛠 *Backend Development In Progress*
+
+---
+
+
+## 📬 Feedback
+
+Feel free to open issues or pull requests if you'd like to contribute or suggest improvements.
